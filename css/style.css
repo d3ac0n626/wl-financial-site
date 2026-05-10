@@ -1,0 +1,576 @@
+/* ========================================
+   WEALTH & LEGACY FINANCIAL - STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-dark: #001F3F;
+    --primary-gold: #D4AF37;
+    --text-dark: #1a1a1a;
+    --text-light: #ffffff;
+    --bg-light: #f8f9fa;
+    --border-color: #e0e0e0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--text-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.navbar {
+    background-color: var(--text-light);
+    border-bottom: 2px solid var(--primary-gold);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--primary-dark);
+    display: none;
+}
+
+.nav-cta {
+    background-color: var(--primary-gold);
+    color: var(--primary-dark);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background-color: var(--primary-dark);
+    color: var(--primary-gold);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #003d66 100%);
+    color: var(--text-light);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--primary-gold);
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    margin-bottom: 40px;
+    color: #ddd;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-gold);
+    color: var(--primary-dark);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-gold);
+    border-color: var(--primary-gold);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-gold);
+    border-color: var(--primary-gold);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-gold);
+    color: var(--primary-dark);
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 16px;
+}
+
+/* ========================================
+   STATS SECTION
+   ======================================== */
+
+.stats {
+    background-color: var(--bg-light);
+    padding: 80px 0;
+}
+
+.stats .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 30px;
+    background: var(--text-light);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--primary-gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+.about {
+    padding: 80px 0;
+    background-color: var(--text-light);
+}
+
+.about h2 {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: var(--bg-light);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    box-shadow: 0 8px 20px rgba(0, 31, 63, 0.15);
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+}
+
+.feature p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   PROOF SECTION
+   ======================================== */
+
+.proof {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #003d66 100%);
+    color: var(--text-light);
+    padding: 80px 0;
+}
+
+.proof h2 {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--primary-gold);
+}
+
+.proof-content {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.proof-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    width: 100%;
+}
+
+.proof-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.proof-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--primary-gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.proof-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.proof-small {
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* ========================================
+   FAQ SECTION
+   ======================================== */
+
+.faq {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+.faq h2 {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--primary-dark);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.faq-item {
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+}
+
+.faq-item p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   FINAL CTA SECTION
+   ======================================== */
+
+.final-cta {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #003d66 100%);
+    color: var(--text-light);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.final-cta h2 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--primary-gold);
+}
+
+.final-cta > .container > p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ddd;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 2px solid var(--primary-gold);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.powered-by {
+    color: var(--primary-gold);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.footer-content a {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .brand-name {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        margin: 8px;
+        font-size: 14px;
+    }
+
+    .about h2,
+    .faq h2,
+    .proof h2,
+    .final-cta h2 {
+        font-size: 32px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    .feature-icon {
+        font-size: 36px;
+    }
+
+    .proof-number {
+        font-size: 40px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-large {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .about,
+    .faq,
+    .proof,
+    .final-cta,
+    .stats {
+        padding: 50px 0;
+    }
+
+    .about h2,
+    .faq h2,
+    .proof h2,
+    .final-cta h2 {
+        font-size: 26px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    .stat-card,
+    .feature,
+    .faq-item,
+    .proof-stat {
+        padding: 20px;
+    }
+
+    .stats .container,
+    .features-grid,
+    .faq-grid,
+    .proof-stats {
+        gap: 20px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature,
+.faq-item,
+.stat-card {
+    animation: fadeInUp 0.6s ease-out;
+}
