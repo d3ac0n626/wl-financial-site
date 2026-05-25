@@ -176,37 +176,62 @@
 
         /* ── STATS BANNER ── */
         .stats-banner {
-            background: var(--white);
-            padding: 0;
+            background: transparent;
+            padding: 0 0 32px;
             position: relative; z-index: 10;
-            margin-top: -48px;
+            margin-top: -60px;
         }
         .stats-banner .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
+            gap: 20px;
+            background: transparent;
         }
         .stat-card {
-            text-align: center; padding: 36px 20px;
-            border-right: 1px solid var(--gray-200);
+            text-align: center;
+            padding: 36px 20px 32px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
-        .stat-card:last-child { border-right: none; }
-        .stat-card:hover { background: var(--gray-50); }
+        .stat-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,0,0,.1);
+            border-color: rgba(197,165,90,.25);
+        }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-icon {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0,31,63,.06), rgba(0,31,63,.03));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.25rem;
+        }
         .stat-number {
             display: block;
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 2rem; font-weight: 800; color: var(--navy);
-            margin-bottom: 4px;
+            font-size: 2.1rem; font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 6px;
+            line-height: 1.1;
         }
         .stat-label {
-            font-size: .85rem; color: var(--gray-500);
-            font-weight: 500; margin: 0; text-transform: uppercase;
-            letter-spacing: .5px;
+            font-size: .8rem; color: var(--gray-500);
+            font-weight: 600; margin: 0;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            line-height: 1.4;
         }
 
         /* ── SECTION SHARED ── */
@@ -503,8 +528,7 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 960px) {
-            .stats-banner .container { grid-template-columns: repeat(2, 1fr); }
-            .stat-card:nth-child(2) { border-right: none; }
+            .stats-banner .container { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .steps-grid { grid-template-columns: 1fr; gap: 32px; }
             .steps-grid::before { display: none; }
             .proof-grid { grid-template-columns: 1fr; }
@@ -512,16 +536,19 @@
             .nav-links { display: none; }
         }
         @media (max-width: 768px) {
-            .stats-banner .container { grid-template-columns: 1fr 1fr; }
+            .stats-banner .container { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stats-banner { margin-top: -44px; }
             .hero { padding: 140px 0 80px; }
             .hero-trust { gap: 20px; }
             .form-row { grid-template-columns: 1fr; }
             section { padding: 64px 0; }
         }
         @media (max-width: 480px) {
-            .stats-banner .container { grid-template-columns: 1fr; }
-            .stat-card { border-right: none; border-bottom: 1px solid var(--gray-200); }
-            .stat-card:last-child { border-bottom: none; }
+            .stats-banner .container { grid-template-columns: 1fr; gap: 12px; }
+            .stats-banner { margin-top: -36px; }
+            .stat-card { padding: 28px 16px 24px; }
+            .stat-number { font-size: 1.8rem; }
+            .stat-icon { width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 12px; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn { width: 100%; max-width: 300px; }
             .contact-form-card { padding: 28px 20px; }
@@ -564,7 +591,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Apply to Join the Team</a>
-                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener" class="btn btn-secondary">Follow @deaconbartush</a>
+                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener" class="btn btn-secondary">Follow</a>
             </div>
             <div class="hero-trust">
                 <div class="hero-trust-item">
@@ -591,18 +618,22 @@
     <section class="stats-banner" aria-label="Key statistics">
         <div class="container">
             <div class="stat-card">
+                <div class="stat-icon">💰</div>
                 <span class="stat-number">$10K–$30K</span>
                 <p class="stat-label">Monthly Earning Potential</p>
             </div>
             <div class="stat-card">
+                <div class="stat-icon">✅</div>
                 <span class="stat-number">0</span>
                 <p class="stat-label">Experience Required</p>
             </div>
             <div class="stat-card">
+                <div class="stat-icon">🎓</div>
                 <span class="stat-number">100%</span>
                 <p class="stat-label">Training Provided Free</p>
             </div>
             <div class="stat-card">
+                <div class="stat-icon">🌍</div>
                 <span class="stat-number">24/7</span>
                 <p class="stat-label">Work From Anywhere</p>
             </div>
@@ -776,7 +807,7 @@
                                 <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                             </div>
                             <div class="contact-detail-text">
-                                <a href="mailto:deaconbartush@gmail.com">deaconbartush@gmail.com</a>
+                                <a href="/cdn-cgi/l/email-protection#1e7a7b7f7d71707c7f6c6a6b6d765e79737f7772307d7173"><span class="__cf_email__" data-cfemail="5a3e3f3b393534383b282e2f29321a3d373b333674393537">[email&#160;protected]</span></a>
                             </div>
                         </div>
                         <div class="contact-detail">
@@ -784,7 +815,7 @@
                                 <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
                             </div>
                             <div class="contact-detail-text">
-                                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener">@deaconbartush</a>
+                                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener">DM For More Info</a>
                             </div>
                         </div>
                         <div class="contact-detail">
@@ -792,7 +823,7 @@
                                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
                             </div>
                             <div class="contact-detail-text">
-                                Rochester, Michigan
+                                Michigan
                             </div>
                         </div>
                     </div>
@@ -871,7 +902,7 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2026 Wealth &amp; Legacy Financial LLC. All rights reserved.</p>
-                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener">@wealthandlegacyfinancial</a>
+                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener">Follow</a>
                 <p class="powered-by">Powered by Unity Financial Group LLC</p>
                 <p style="font-size:.75rem;color:rgba(255,255,255,.25);margin-top:16px;">
                     Results vary. Income examples are not guarantees. Success depends on individual effort, skill, and market conditions. Licensing required.
@@ -881,7 +912,7 @@
     </footer>
 
     <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function() {
         // ── Contact Form Handler — Web3Forms (works on static hosting / GitHub Pages) ──
         var form = document.getElementById('contactForm');
