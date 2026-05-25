@@ -564,7 +564,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Apply to Join the Team</a>
-                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener" class="btn btn-secondary">DM Me</a>
+                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener" class="btn btn-secondary">Follow @deaconbartush</a>
             </div>
             <div class="hero-trust">
                 <div class="hero-trust-item">
@@ -573,7 +573,7 @@
                 </div>
                 <div class="hero-trust-item">
                     <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-                    <span>100% Remote / In Person</span>
+                    <span>100% Remote</span>
                 </div>
                 <div class="hero-trust-item">
                     <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
@@ -792,49 +792,57 @@
                                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
                             </div>
                             <div class="contact-detail-text">
-                                Michigan
+                                Rochester, Michigan
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-card">
                     <div class="form-message" id="formMessage"></div>
-                    <form id="contactForm" action="contact.php" method="POST" novalidate>
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                        <!-- Web3Forms Configuration -->
+                        <input type="hidden" name="access_key" value="04f10d83-4f45-4471-ab71-ec4248af7195">
+                        <input type="hidden" name="subject" value="New W&L Team Application">
+                        <input type="hidden" name="from_name" value="W&L Financial Website">
+                        <input type="hidden" name="redirect" value="">
+                        <!-- Honeypot spam protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display:none !important;">
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="first_name" placeholder="John" required>
+                                <input type="text" id="firstName" name="First Name" placeholder="John" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="last_name" placeholder="Doe" required>
+                                <input type="text" id="lastName" name="Last Name" placeholder="Doe" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <input type="email" id="email" name="Email" placeholder="john@example.com" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                            <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567" required>
                         </div>
                         <div class="form-group">
                             <label for="state">State You're Located In</label>
-                            <input type="text" id="state" name="state" placeholder="e.g. Michigan">
+                            <input type="text" id="state" name="State" placeholder="e.g. Michigan">
                         </div>
                         <div class="form-group">
                             <label for="experience">Insurance Experience?</label>
-                            <select id="experience" name="experience">
+                            <select id="experience" name="Experience">
                                 <option value="" disabled selected>Select one</option>
-                                <option value="none">No experience — starting fresh</option>
-                                <option value="some">Some experience (less than 1 year)</option>
-                                <option value="experienced">Experienced (1+ years)</option>
-                                <option value="licensed">Already licensed</option>
+                                <option value="No experience — starting fresh">No experience — starting fresh</option>
+                                <option value="Some experience (less than 1 year)">Some experience (less than 1 year)</option>
+                                <option value="Experienced (1+ years)">Experienced (1+ years)</option>
+                                <option value="Already licensed">Already licensed</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Anything Else You'd Like Us to Know?</label>
-                            <textarea id="message" name="message" placeholder="Tell us about yourself, your goals, or any questions you have…"></textarea>
+                            <textarea id="message" name="Message" placeholder="Tell us about yourself, your goals, or any questions you have…"></textarea>
                         </div>
                         <button type="submit" class="form-submit">Send My Application</button>
                         <p class="form-note">We respect your privacy. Your information is never shared with third parties.</p>
@@ -875,7 +883,7 @@
     <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
     <script>
     (function() {
-        // ── Contact Form Handler (AJAX with PHP fallback) ──
+        // ── Contact Form Handler — Web3Forms (works on static hosting / GitHub Pages) ──
         var form = document.getElementById('contactForm');
         var msgDiv = document.getElementById('formMessage');
 
@@ -885,21 +893,30 @@
                 msgDiv.className = 'form-message';
                 msgDiv.style.display = 'none';
 
-                // Basic validation
+                // Clear previous field highlights
+                form.querySelectorAll('input, textarea, select').forEach(function(f) {
+                    f.style.borderColor = '';
+                });
+
+                // Validate required fields
                 var required = form.querySelectorAll('[required]');
                 var valid = true;
                 required.forEach(function(field) {
-                    if (!field.value.trim()) { valid = false; field.style.borderColor = '#EF4444'; }
-                    else { field.style.borderColor = ''; }
+                    if (!field.value.trim()) {
+                        valid = false;
+                        field.style.borderColor = '#EF4444';
+                    }
                 });
                 var emailField = form.querySelector('#email');
                 if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
-                    valid = false; emailField.style.borderColor = '#EF4444';
+                    valid = false;
+                    emailField.style.borderColor = '#EF4444';
                 }
                 if (!valid) {
                     msgDiv.textContent = 'Please fill in all required fields correctly.';
                     msgDiv.className = 'form-message error';
                     msgDiv.style.display = 'block';
+                    msgDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     return;
                 }
 
@@ -907,9 +924,10 @@
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending…';
 
-                // Attempt to send via PHP handler
+                // Submit to Web3Forms via AJAX (no page redirect)
                 var formData = new FormData(form);
-                fetch('contact.php', {
+
+                fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     body: formData
                 })
@@ -918,29 +936,21 @@
                     if (data.success) {
                         msgDiv.textContent = '✅ Application sent! We\'ll be in touch within 24 hours.';
                         msgDiv.className = 'form-message success';
+                        msgDiv.style.display = 'block';
                         form.reset();
                     } else {
                         msgDiv.textContent = data.message || 'Something went wrong. Please try again or email us directly.';
                         msgDiv.className = 'form-message error';
+                        msgDiv.style.display = 'block';
                     }
-                    msgDiv.style.display = 'block';
+                    msgDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 })
-                .catch(function() {
-                    // Fallback: open mailto link if PHP isn't available
-                    var subject = encodeURIComponent('New W&L Application from ' + form.querySelector('#firstName').value + ' ' + form.querySelector('#lastName').value);
-                    var body = encodeURIComponent(
-                        'Name: ' + form.querySelector('#firstName').value + ' ' + form.querySelector('#lastName').value + '\n' +
-                        'Email: ' + form.querySelector('#email').value + '\n' +
-                        'Phone: ' + form.querySelector('#phone').value + '\n' +
-                        'State: ' + (form.querySelector('#state').value || 'N/A') + '\n' +
-                        'Experience: ' + (form.querySelector('#experience').value || 'N/A') + '\n' +
-                        'Message: ' + (form.querySelector('#message').value || 'N/A')
-                    );
-                    window.location.href = 'mailto:deaconbartush@gmail.com?subject=' + subject + '&body=' + body;
-                    msgDiv.textContent = '📧 Opening your email client… If nothing happens, email us directly at deaconbartush@gmail.com';
-                    msgDiv.className = 'form-message success';
+                .catch(function(err) {
+                    console.error('Contact form error:', err);
+                    msgDiv.textContent = 'Network error — please try again or email us directly at deaconbartush@gmail.com';
+                    msgDiv.className = 'form-message error';
                     msgDiv.style.display = 'block';
-                    form.reset();
+                    msgDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 })
                 .finally(function() {
                     submitBtn.disabled = false;
@@ -960,15 +970,13 @@
             });
         });
 
-        // ── Navbar background on scroll ──
+        // ── Navbar shadow on scroll ──
         var navbar = document.querySelector('.navbar');
         if (navbar) {
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,.15)';
-                } else {
-                    navbar.style.boxShadow = 'none';
-                }
+                navbar.style.boxShadow = window.scrollY > 50
+                    ? '0 4px 20px rgba(0,0,0,.15)'
+                    : 'none';
             });
         }
     })();
