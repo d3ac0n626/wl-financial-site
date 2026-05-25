@@ -3,48 +3,604 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wealth & Legacy Financial - Build a high-income career with total freedom. Join our team today.">
+    <meta name="description" content="Wealth & Legacy Financial — Launch a high-income career in financial services with full training, mentorship, and unlimited earning potential. Apply today.">
+    <meta name="keywords" content="insurance agent, financial services career, work from home, high income, Wealth and Legacy Financial">
     <meta name="theme-color" content="#001F3F">
-    <title>Wealth & Legacy Financial | Build Your Future</title>
+    <meta property="og:title" content="Wealth & Legacy Financial | Your Future Starts Here">
+    <meta property="og:description" content="Join a team that's helping everyday people build six-figure careers in financial services — no degree required.">
+    <meta property="og:type" content="website">
+    <title>Wealth & Legacy Financial | Your Future Starts Here</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
+    <!-- Google Fonts for enhanced typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ── Enhanced inline styles that supplement existing css/style.css ── */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        :root {
+            --navy: #001F3F;
+            --gold: #C5A55A;
+            --gold-light: #D4B96E;
+            --white: #FFFFFF;
+            --off-white: #F8F7F4;
+            --gray-50: #FAFAFA;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-500: #6B7280;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,.12);
+            --shadow-gold: 0 4px 24px rgba(197,165,90,.25);
+            --transition: all .3s cubic-bezier(.4,0,.2,1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0; padding: 0;
+            color: var(--gray-900);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(0,31,63,.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197,165,90,.15);
+            padding: 0;
+            transition: var(--transition);
+        }
+        .navbar .container {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .logo-section {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .logo {
+            width: 44px; height: 44px; object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(197,165,90,.3));
+        }
+        .brand-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--gold); letter-spacing: .5px;
+        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a {
+            color: rgba(255,255,255,.8); text-decoration: none; font-size: .9rem;
+            font-weight: 500; transition: var(--transition); letter-spacing: .3px;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--navy) !important; padding: 10px 24px; border-radius: 50px;
+            font-weight: 700; font-size: .85rem; text-decoration: none;
+            letter-spacing: .5px; text-transform: uppercase;
+            transition: var(--transition); box-shadow: var(--shadow-gold);
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(197,165,90,.4); }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(160deg, var(--navy) 0%, #00152E 60%, #001a38 100%);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(197,165,90,.06) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(197,165,90,.04) 0%, transparent 40%);
+            animation: heroGlow 15s ease-in-out infinite alternate;
+        }
+        @keyframes heroGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(5deg); }
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(197,165,90,.12);
+            border: 1px solid rgba(197,165,90,.25);
+            color: var(--gold); padding: 8px 20px;
+            border-radius: 50px; font-size: .8rem;
+            font-weight: 600; letter-spacing: 1.5px;
+            text-transform: uppercase; margin-bottom: 28px;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 900; color: var(--white);
+            line-height: 1.15; margin: 0 0 24px;
+            letter-spacing: -.5px;
+        }
+        .hero-title .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+            color: rgba(255,255,255,.7); max-width: 620px;
+            margin: 0 auto 40px; font-weight: 400; line-height: 1.7;
+        }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 36px; border-radius: 50px;
+            font-size: .95rem; font-weight: 700;
+            text-decoration: none; transition: var(--transition);
+            letter-spacing: .3px; cursor: pointer; border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--navy); box-shadow: var(--shadow-gold);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(197,165,90,.45); }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,.3);
+            color: var(--white);
+        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+        .hero-trust {
+            margin-top: 48px; padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+        }
+        .hero-trust-item {
+            display: flex; align-items: center; gap: 8px;
+            color: rgba(255,255,255,.5); font-size: .85rem; font-weight: 500;
+        }
+        .hero-trust-item svg { width: 18px; height: 18px; fill: var(--gold); opacity: .7; }
+
+        /* ── STATS BANNER ── */
+        .stats-banner {
+            background: var(--white);
+            padding: 0;
+            position: relative; z-index: 10;
+            margin-top: -48px;
+        }
+        .stats-banner .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        .stat-card {
+            text-align: center; padding: 36px 20px;
+            border-right: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+        .stat-card:last-child { border-right: none; }
+        .stat-card:hover { background: var(--gray-50); }
+        .stat-number {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem; font-weight: 800; color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: .85rem; color: var(--gray-500);
+            font-weight: 500; margin: 0; text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        /* ── SECTION SHARED ── */
+        section { padding: 96px 0; }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800; color: var(--navy);
+            margin: 0 0 16px; line-height: 1.2;
+        }
+        .section-subtitle {
+            font-size: 1.1rem; color: var(--gray-500);
+            max-width: 600px; margin: 0 auto 56px;
+            line-height: 1.7;
+        }
+        .section-label {
+            display: inline-block; font-size: .75rem;
+            font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        /* ── ABOUT / FEATURES ── */
+        .about { background: var(--gray-50); text-align: center; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .feature {
+            background: var(--white); padding: 40px 32px;
+            border-radius: var(--radius); text-align: left;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .feature:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(197,165,90,.3);
+        }
+        .feature::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0); transform-origin: left;
+            transition: transform .4s ease;
+        }
+        .feature:hover::after { transform: scaleX(1); }
+        .feature-icon {
+            width: 56px; height: 56px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(197,165,90,.1), rgba(197,165,90,.05));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 20px;
+        }
+        .feature h3 {
+            font-size: 1.15rem; font-weight: 700; color: var(--navy);
+            margin: 0 0 10px;
+        }
+        .feature p {
+            font-size: .95rem; color: var(--gray-500);
+            margin: 0; line-height: 1.65;
+        }
+
+        /* ── HOW IT WORKS ── */
+        .how-it-works { background: var(--white); text-align: center; }
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 48px; margin-top: 56px; position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute; top: 40px; left: 15%; right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: .3;
+        }
+        .step { text-align: center; position: relative; }
+        .step-num {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), #00152E);
+            color: var(--gold); font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 30px rgba(0,31,63,.2);
+        }
+        .step h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 0 0 8px; }
+        .step p { font-size: .9rem; color: var(--gray-500); line-height: 1.6; margin: 0; }
+
+        /* ── PROOF / RESULTS ── */
+        .proof {
+            background: linear-gradient(160deg, var(--navy), #00152E);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .proof::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(197,165,90,.05) 0%, transparent 60%);
+        }
+        .proof .container { position: relative; z-index: 2; }
+        .proof h2 { color: var(--white); }
+        .proof .section-subtitle { color: rgba(255,255,255,.6); }
+        .proof-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .proof-stat {
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: var(--radius); padding: 40px 24px;
+            transition: var(--transition);
+        }
+        .proof-stat:hover { background: rgba(255,255,255,.08); border-color: rgba(197,165,90,.2); }
+        .proof-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem; font-weight: 800; color: var(--gold);
+            display: block; margin-bottom: 8px;
+        }
+        .proof-text { color: var(--white); font-weight: 600; font-size: 1rem; margin: 0 0 4px; }
+        .proof-small { color: rgba(255,255,255,.45); font-size: .85rem; margin: 0; }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial-section {
+            background: var(--off-white); text-align: center;
+        }
+        .testimonial-card {
+            max-width: 680px; margin: 0 auto;
+            background: var(--white); padding: 48px 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem; color: var(--gold); opacity: .15;
+            position: absolute; top: -10px; left: 30px; line-height: 1;
+        }
+        .testimonial-card blockquote {
+            font-size: 1.15rem; line-height: 1.8;
+            color: var(--gray-700); font-style: italic;
+            margin: 0 0 24px; position: relative; z-index: 2;
+        }
+        .testimonial-card cite {
+            font-style: normal; font-weight: 700;
+            color: var(--navy); font-size: .95rem;
+        }
+        .testimonial-card cite span {
+            display: block; font-weight: 400;
+            color: var(--gray-500); font-size: .85rem; margin-top: 4px;
+        }
+
+        /* ── FAQ ── */
+        .faq { background: var(--white); text-align: center; }
+        .faq-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px; text-align: left;
+        }
+        .faq-item {
+            background: var(--gray-50); padding: 28px 32px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+        .faq-item:hover { border-color: rgba(197,165,90,.3); box-shadow: var(--shadow-sm); }
+        .faq-item h4 {
+            font-size: 1rem; font-weight: 700; color: var(--navy);
+            margin: 0 0 8px;
+        }
+        .faq-item p { font-size: .9rem; color: var(--gray-500); margin: 0; line-height: 1.65; }
+
+        /* ── CONTACT FORM ── */
+        .contact {
+            background: var(--gray-50);
+            text-align: center;
+            padding: 96px 0;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: start;
+            text-align: left;
+        }
+        .contact-info h2 { text-align: left; }
+        .contact-info p { color: var(--gray-500); line-height: 1.7; font-size: 1rem; }
+        .contact-detail {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 16px;
+        }
+        .contact-detail-icon {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), #00152E);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-detail-icon svg { width: 20px; height: 20px; fill: var(--gold); }
+        .contact-detail-text { font-size: .95rem; color: var(--gray-700); font-weight: 500; }
+        .contact-detail-text a { color: var(--navy); text-decoration: none; }
+        .contact-detail-text a:hover { color: var(--gold); }
+
+        .contact-form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: .85rem;
+            font-weight: 600; color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%; padding: 14px 16px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 10px; font-size: .95rem;
+            font-family: inherit; color: var(--gray-900);
+            background: var(--gray-50);
+            transition: var(--transition);
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(197,165,90,.12);
+            background: var(--white);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--navy); border: none; padding: 16px 40px;
+            border-radius: 50px; font-size: 1rem; font-weight: 700;
+            letter-spacing: .5px; cursor: pointer;
+            transition: var(--transition); width: 100%;
+            box-shadow: var(--shadow-gold);
+        }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(197,165,90,.4); }
+        .form-submit:active { transform: translateY(0); }
+        .form-note { font-size: .8rem; color: var(--gray-500); margin-top: 12px; text-align: center; }
+
+        /* ── FINAL CTA ── */
+        .final-cta {
+            background: linear-gradient(160deg, var(--navy), #00152E);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at center, rgba(197,165,90,.06) 0%, transparent 70%);
+        }
+        .final-cta .container { position: relative; z-index: 2; }
+        .final-cta h2 { color: var(--white); font-size: clamp(2rem, 4.5vw, 3rem); }
+        .final-cta p {
+            color: rgba(255,255,255,.65); font-size: 1.1rem;
+            max-width: 560px; margin: 0 auto 40px; line-height: 1.7;
+        }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #000D1A; padding: 48px 0 32px; text-align: center;
+        }
+        .footer-content p { color: rgba(255,255,255,.4); font-size: .85rem; margin: 4px 0; }
+        .footer-content a {
+            color: var(--gold); text-decoration: none; font-weight: 500;
+        }
+        .footer-content a:hover { color: var(--gold-light); }
+        .powered-by {
+            font-size: .75rem !important; letter-spacing: 1.5px;
+            text-transform: uppercase; opacity: .6;
+            margin-top: 12px !important;
+        }
+
+        /* ── FORM SUCCESS/ERROR MESSAGES ── */
+        .form-message {
+            padding: 14px 20px; border-radius: 10px;
+            font-size: .9rem; font-weight: 500;
+            margin-bottom: 20px; display: none;
+        }
+        .form-message.success {
+            background: #ECFDF5; color: #065F46;
+            border: 1px solid #A7F3D0; display: block;
+        }
+        .form-message.error {
+            background: #FEF2F2; color: #991B1B;
+            border: 1px solid #FECACA; display: block;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .stats-banner .container { grid-template-columns: repeat(2, 1fr); }
+            .stat-card:nth-child(2) { border-right: none; }
+            .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+            .steps-grid::before { display: none; }
+            .proof-grid { grid-template-columns: 1fr; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 768px) {
+            .stats-banner .container { grid-template-columns: 1fr 1fr; }
+            .hero { padding: 140px 0 80px; }
+            .hero-trust { gap: 20px; }
+            .form-row { grid-template-columns: 1fr; }
+            section { padding: 64px 0; }
+        }
+        @media (max-width: 480px) {
+            .stats-banner .container { grid-template-columns: 1fr; }
+            .stat-card { border-right: none; border-bottom: 1px solid var(--gray-200); }
+            .stat-card:last-child { border-bottom: none; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
+            .contact-form-card { padding: 28px 20px; }
+        }
+
+        /* ── SMOOTH SCROLL ANCHOR OFFSET ── */
+        section[id] { scroll-margin-top: 80px; }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="logo-section">
-                <img src="assets/logo.png" alt="W&L Financial Logo" class="logo">
-                <span class="brand-name">Wealth & Legacy Financial</span>
+                <img src="assets/logo.png" alt="Wealth &amp; Legacy Financial Logo" class="logo" width="44" height="44">
+                <span class="brand-name">Wealth &amp; Legacy Financial</span>
             </div>
-            <a href="https://instagram.com/deaconbartush" target="_blank" class="nav-cta">Follow Us</a>
+            <ul class="nav-links">
+                <li><a href="#about">Why Us</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Apply Now</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════ HERO ═══════════════ -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">Stop Trading Time<br>For a Paycheck</h1>
-            <p class="hero-subtitle">Build a career with total freedom & purpose. Join a team that's transforming lives.</p>
-            <a href="https://instagram.com/deaconbartush" target="_blank" class="btn btn-primary">Follow on Instagram</a>
-            <a href="https://instagram.com/deaconbartush" target="_blank" class="btn btn-secondary">DM to Start</a>
+            <div class="hero-badge">Now Recruiting Nationwide</div>
+            <h1 class="hero-title">
+                Your 9-to-5 Wasn't Built<br>
+                to Make You <span class="highlight">Wealthy</span>
+            </h1>
+            <p class="hero-subtitle">
+                Join a team of driven professionals building six-figure careers in financial services — with full training, mentorship, and the freedom to work on your terms.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Apply to Join the Team</a>
+                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener" class="btn btn-secondary">Follow @deaconbartush</a>
+            </div>
+            <div class="hero-trust">
+                <div class="hero-trust-item">
+                    <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <span>No Degree Required</span>
+                </div>
+                <div class="hero-trust-item">
+                    <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <span>100% Remote</span>
+                </div>
+                <div class="hero-trust-item">
+                    <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <span>Free Training</span>
+                </div>
+                <div class="hero-trust-item">
+                    <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <span>Licensed &amp; Legitimate</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
+    <!-- ═══════════════ STATS BANNER ═══════════════ -->
+    <section class="stats-banner" aria-label="Key statistics">
         <div class="container">
             <div class="stat-card">
                 <span class="stat-number">$10K–$30K</span>
-                <p class="stat-label">Monthly Income Potential</p>
+                <p class="stat-label">Monthly Earning Potential</p>
             </div>
             <div class="stat-card">
                 <span class="stat-number">0</span>
-                <p class="stat-label">Degree Required</p>
+                <p class="stat-label">Experience Required</p>
             </div>
             <div class="stat-card">
                 <span class="stat-number">100%</span>
-                <p class="stat-label">Free Training Provided</p>
+                <p class="stat-label">Training Provided Free</p>
             </div>
             <div class="stat-card">
                 <span class="stat-number">24/7</span>
@@ -53,121 +609,370 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
+    <!-- ═══════════════ ABOUT / FEATURES ═══════════════ -->
+    <section class="about" id="about">
         <div class="container">
-            <h2>Why Join Wealth & Legacy Financial?</h2>
-            <p class="section-subtitle">We're not just an insurance agency—we're a movement to help you build real wealth and leave a lasting legacy.</p>
+            <span class="section-label">Why Wealth &amp; Legacy</span>
+            <h2>This Isn't Just a Job — It's a Vehicle to Freedom</h2>
+            <p class="section-subtitle">
+                We equip everyday people with the tools, training, and mentorship to build real wealth in the financial services industry.
+            </p>
             <div class="features-grid">
                 <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Your Own Schedule</h3>
-                    <p>Work when you want. Set your own pace. No rigid 9-5 structure holding you back.</p>
+                    <div class="feature-icon">🗓️</div>
+                    <h3>Set Your Own Schedule</h3>
+                    <p>No clock to punch. No boss breathing down your neck. You decide when and how much you work — every single day.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🌍</div>
+                    <div class="feature-icon">🌎</div>
                     <h3>Work From Anywhere</h3>
-                    <p>Build your business remotely. All you need is a laptop and internet connection.</p>
+                    <p>All you need is a phone and Wi-Fi. Serve clients nationwide from your home, a coffee shop, or the beach.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Build Your Team</h3>
-                    <p>Recruit others, earn team commissions, and create passive income streams.</p>
+                    <div class="feature-icon">👥</div>
+                    <h3>Build a Team &amp; Earn Overrides</h3>
+                    <p>Recruit and mentor your own agents. Earn team commissions and create income streams that pay even while you sleep.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">📚</div>
-                    <h3>Complete Training</h3>
-                    <p>We provide everything you need to succeed. No experience necessary.</p>
+                    <div class="feature-icon">🎓</div>
+                    <h3>Full Training &amp; Licensing Help</h3>
+                    <p>We walk you through licensing, product knowledge, and sales systems — step by step. Zero prior experience needed.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">💰</div>
-                    <h3>Unlimited Earning Potential</h3>
-                    <p>Your income is based on your effort. The harder you work, the more you earn.</p>
+                    <h3>Highest Compensation</h3>
+                    <p>Top-of-industry commission structures. Your income has no ceiling — the harder you work, the more you take home.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🏆</div>
-                    <h3>Elite Support & Mentorship</h3>
-                    <p>Join a community of high-performers committed to your success.</p>
+                    <h3>Mentorship That Delivers</h3>
+                    <p>Our uplines don't just recruit — they invest in you. Weekly calls, 1-on-1 coaching, and a proven system that works.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Proof Section -->
-    <section class="proof">
+    <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2>Real Results From Our Team</h2>
-            <div class="proof-content">
-                <div class="proof-stats">
-                    <div class="proof-stat">
-                        <span class="proof-number">$6,218</span>
-                        <p class="proof-text">Daily Production</p>
-                        <p class="proof-small">One team member's Daily results</p>
-                    </div>
-                    <div class="proof-stat">
-                        <span class="proof-number">100+</span>
-                        <p class="proof-text">Active Agents</p>
-                        <p class="proof-small">Building their careers with us</p>
-                    </div>
+            <span class="section-label">Getting Started</span>
+            <h2>Three Steps to Launching Your Career</h2>
+            <p class="section-subtitle">
+                The process is simple and we're with you every step of the way.
+            </p>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Apply &amp; Connect</h3>
+                    <p>Fill out the form below or DM us on Instagram. We'll schedule a quick intro call to see if we're a good fit.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>Get Licensed &amp; Trained</h3>
+                    <p>We guide you through state licensing and our training program. You'll be ready to start helping clients in weeks.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Earn &amp; Grow</h3>
+                    <p>Start writing business, earning commissions, and building your team. Your income grows as your skills and network grow.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq">
+    <!-- ═══════════════ PROOF / RESULTS ═══════════════ -->
+    <section class="proof" id="results">
         <div class="container">
-            <h2>Common Questions</h2>
+            <span class="section-label" style="color:var(--gold);">Real Numbers</span>
+            <h2>Results Speak Louder Than Promises</h2>
+            <p class="section-subtitle">
+                Our agents are building real businesses and earning real income.
+            </p>
+            <div class="proof-grid">
+                <div class="proof-stat">
+                    <span class="proof-number">$6,218</span>
+                    <p class="proof-text">Single-Day Production</p>
+                    <p class="proof-small">Actual results from one team member</p>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-number">100+</span>
+                    <p class="proof-text">Active Agents</p>
+                    <p class="proof-small">And growing every month</p>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-number">50 States</span>
+                    <p class="proof-text">Nationwide Reach</p>
+                    <p class="proof-small">Serve clients across the country</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ TESTIMONIAL ═══════════════ -->
+    <section class="testimonial-section">
+        <div class="container">
+            <span class="section-label">From Our Team</span>
+            <h2>What Agents Are Saying</h2>
+            <div class="testimonial-card" style="margin-top: 40px;">
+                <blockquote>
+                    "I went from working 60-hour weeks at a job I hated to building my own business on my own terms. The training and support at W&amp;L are unlike anything I've experienced. Within my first 90 days I replaced my old salary — and I'm just getting started."
+                </blockquote>
+                <cite>
+                    — W&amp;L Team Member
+                    <span>Former Retail Manager → Full-Time Agent</span>
+                </cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FAQ ═══════════════ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <span class="section-label">Common Questions</span>
+            <h2>Everything You Need to Know</h2>
+            <p class="section-subtitle">Straight answers — no fluff.</p>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>Is there any degree requirement?</h4>
-                    <p>No. We provide all the training and certifications you need to succeed, regardless of your background.</p>
+                    <h4>Do I need a degree or prior experience?</h4>
+                    <p>Not at all. We provide every resource — from licensing prep to sales scripts — so you can start from zero and succeed.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>How quickly can I start earning?</h4>
-                    <p>Our agents start closing sales within weeks of training. Your income potential grows as you build your pipeline.</p>
+                    <h4>How soon can I start earning?</h4>
+                    <p>Most agents close their first sale within 2–4 weeks of completing training. Your income accelerates as you gain confidence and build a pipeline.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Do I work alone or with a team?</h4>
-                    <p>Both. You build your own client base and can recruit other agents to build recurring team income.</p>
+                    <h4>Is this a solo gig or a team environment?</h4>
+                    <p>Both. You build your own book of business, but you're never alone. Our team is on daily calls, group chats, and 1-on-1 coaching sessions.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>What support do I get?</h4>
-                    <p>Elite mentorship, complete training program, daily support, and access to proven systems and scripts.</p>
+                    <h4>What kind of products do I sell?</h4>
+                    <p>Life insurance, annuities, and other financial products that genuinely help families protect their futures. This is meaningful work.</p>
                 </div>
                 <div class="faq-item">
                     <h4>Can I really work from anywhere?</h4>
-                    <p>Yes. You need a laptop and internet. Clients are nationwide, so geography isn't a limitation.</p>
+                    <p>Yes. 100%. Our agents work from home, coffee shops, co-working spaces — wherever they have a laptop and internet.</p>
                 </div>
                 <div class="faq-item">
                     <h4>What's the catch?</h4>
-                    <p>There isn't one. Success requires effort and commitment. We provide the tools—you provide the work ethic.</p>
+                    <p>There isn't one — but this isn't a get-rich-quick scheme either. Success takes effort, consistency, and coachability. We bring the system; you bring the work ethic.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="final-cta">
+    <!-- ═══════════════ CONTACT FORM ═══════════════ -->
+    <section class="contact" id="contact">
         <div class="container">
-            <h2>Ready to Build Your Legacy?</h2>
-            <p>Stop waiting for the perfect moment. It's here. Join our team and start building the life you deserve.</p>
-            <div class="cta-buttons">
-                <a href="https://instagram.com/deaconbartush" target="_blank" class="btn btn-primary btn-large">Follow on Instagram</a>
-                <a href="https://instagram.com/deaconbartush" target="_blank" class="btn btn-secondary btn-large">DM "JOIN" Now</a>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <span class="section-label">Get In Touch</span>
+                    <h2>Ready to Take the First Step?</h2>
+                    <p>
+                        Fill out the form and we'll reach out within 24 hours to schedule a quick intro call. No pressure — just a conversation to see if this is the right fit for you.
+                    </p>
+                    <div style="margin-top: 32px;">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <a href="mailto:deaconbartush@gmail.com">deaconbartush@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener">@deaconbartush</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                Rochester, Michigan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-card">
+                    <div class="form-message" id="formMessage"></div>
+                    <form id="contactForm" action="contact.php" method="POST" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="first_name" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="last_name" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State You're Located In</label>
+                            <input type="text" id="state" name="state" placeholder="e.g. Michigan">
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Insurance Experience?</label>
+                            <select id="experience" name="experience">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="none">No experience — starting fresh</option>
+                                <option value="some">Some experience (less than 1 year)</option>
+                                <option value="experienced">Experienced (1+ years)</option>
+                                <option value="licensed">Already licensed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Anything Else You'd Like Us to Know?</label>
+                            <textarea id="message" name="message" placeholder="Tell us about yourself, your goals, or any questions you have…"></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send My Application</button>
+                        <p class="form-note">We respect your privacy. Your information is never shared with third parties.</p>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- ═══════════════ FINAL CTA ═══════════════ -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Your Legacy Starts With a Decision</h2>
+            <p>
+                A year from now, you'll wish you started today. Take the leap — we'll catch you with training, mentorship, and a proven system.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary btn-large">Apply Now — It's Free</a>
+                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener" class="btn btn-secondary btn-large">DM "JOIN" on Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 Wealth & Legacy Financial. All rights reserved.</p>
-                <p class="powered-by">POWERED BY UNITY FINANCIAL GROUP LLC</p>
-                <a href="https://instagram.com/deaconbartush" target="_blank">@wealthandlegacyfinancial</a>
+                <p>&copy; 2026 Wealth &amp; Legacy Financial LLC. All rights reserved.</p>
+                <a href="https://instagram.com/deaconbartush" target="_blank" rel="noopener">@wealthandlegacyfinancial</a>
+                <p class="powered-by">Powered by Unity Financial Group LLC</p>
+                <p style="font-size:.75rem;color:rgba(255,255,255,.25);margin-top:16px;">
+                    Results vary. Income examples are not guarantees. Success depends on individual effort, skill, and market conditions. Licensing required.
+                </p>
             </div>
         </div>
     </footer>
+
+    <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+    <script>
+    (function() {
+        // ── Contact Form Handler (AJAX with PHP fallback) ──
+        var form = document.getElementById('contactForm');
+        var msgDiv = document.getElementById('formMessage');
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                msgDiv.className = 'form-message';
+                msgDiv.style.display = 'none';
+
+                // Basic validation
+                var required = form.querySelectorAll('[required]');
+                var valid = true;
+                required.forEach(function(field) {
+                    if (!field.value.trim()) { valid = false; field.style.borderColor = '#EF4444'; }
+                    else { field.style.borderColor = ''; }
+                });
+                var emailField = form.querySelector('#email');
+                if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+                    valid = false; emailField.style.borderColor = '#EF4444';
+                }
+                if (!valid) {
+                    msgDiv.textContent = 'Please fill in all required fields correctly.';
+                    msgDiv.className = 'form-message error';
+                    msgDiv.style.display = 'block';
+                    return;
+                }
+
+                var submitBtn = form.querySelector('.form-submit');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+
+                // Attempt to send via PHP handler
+                var formData = new FormData(form);
+                fetch('contact.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        msgDiv.textContent = '✅ Application sent! We\'ll be in touch within 24 hours.';
+                        msgDiv.className = 'form-message success';
+                        form.reset();
+                    } else {
+                        msgDiv.textContent = data.message || 'Something went wrong. Please try again or email us directly.';
+                        msgDiv.className = 'form-message error';
+                    }
+                    msgDiv.style.display = 'block';
+                })
+                .catch(function() {
+                    // Fallback: open mailto link if PHP isn't available
+                    var subject = encodeURIComponent('New W&L Application from ' + form.querySelector('#firstName').value + ' ' + form.querySelector('#lastName').value);
+                    var body = encodeURIComponent(
+                        'Name: ' + form.querySelector('#firstName').value + ' ' + form.querySelector('#lastName').value + '\n' +
+                        'Email: ' + form.querySelector('#email').value + '\n' +
+                        'Phone: ' + form.querySelector('#phone').value + '\n' +
+                        'State: ' + (form.querySelector('#state').value || 'N/A') + '\n' +
+                        'Experience: ' + (form.querySelector('#experience').value || 'N/A') + '\n' +
+                        'Message: ' + (form.querySelector('#message').value || 'N/A')
+                    );
+                    window.location.href = 'mailto:deaconbartush@gmail.com?subject=' + subject + '&body=' + body;
+                    msgDiv.textContent = '📧 Opening your email client… If nothing happens, email us directly at deaconbartush@gmail.com';
+                    msgDiv.className = 'form-message success';
+                    msgDiv.style.display = 'block';
+                    form.reset();
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send My Application';
+                });
+            });
+        }
+
+        // ── Smooth scroll for anchor links ──
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ── Navbar background on scroll ──
+        var navbar = document.querySelector('.navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,.15)';
+                } else {
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+        }
+    })();
+    </script>
+
 </body>
 </html>
