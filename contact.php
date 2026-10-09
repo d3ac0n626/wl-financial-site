@@ -1,7 +1,7 @@
 <?php
 /**
  * Contact Form Handler — Wealth & Legacy Financial
- * Receives form submissions and sends an email to deaconbartush@gmail.com
+ * Receives form submissions and sends an email to wealthandlegacyfinancial@gmail.com
  * 
  * Place this file in the same directory as index.html on your web server.
  * Requires: PHP 7.0+ with mail() function enabled (most shared hosting supports this).
@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 header('X-Content-Type-Options: nosniff');
 
 // ── Configuration ──
-$recipient_email = 'deaconbartush@gmail.com';
+$recipient_email = 'wealthandlegacyfinancial@gmail.com';
 $email_subject_prefix = '[W&L Website]';
 
 // ── Only accept POST requests ──
@@ -141,5 +141,5 @@ if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Application received! We\'ll be in touch within 24 hours.']);
 } else {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'We couldn\'t send your message right now. Please email us directly at deaconbartush@gmail.com']);
+    echo json_encode(['success' => false, 'message' => 'We couldn\'t send your message right now. Please email us directly at wealthandlegacyfinancial@gmail.com']);
 }
