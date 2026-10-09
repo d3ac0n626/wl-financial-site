@@ -18,7 +18,7 @@
 
   /* ===== HEADER ===== */
   .site-header {
-    background: linear-gradient(135deg, #0c0c1a 0%, #12122a 50%, #0c0c1a 100%);
+    background: #0a0a0f;
     border-bottom: 3px solid #c9a84c;
     padding: 28px 40px 20px;
     display: flex;
@@ -420,6 +420,7 @@
   <button class="tab-btn active" onclick="switchTab('home', this)">Home</button>
   <button class="tab-btn" onclick="switchTab('apply', this)">Apply</button>
   <button class="tab-btn" onclick="switchTab('report', this)">Agent Report</button>
+  <button class="tab-btn" onclick="switchTab('changes', this)">Change Submission</button>
 </nav>
 
 <div class="motto">
@@ -754,8 +755,53 @@
           <input type="hidden" name="confidence_level" id="confidence-val">
         </div>
         <div class="field-group">
+          <label class="field-label">Focus Level Today</label>
+          <div class="star-row" id="focus-stars">
+            <span class="star" data-val="1" onclick="setStars('focus',1)">★</span>
+            <span class="star" data-val="2" onclick="setStars('focus',2)">★</span>
+            <span class="star" data-val="3" onclick="setStars('focus',3)">★</span>
+            <span class="star" data-val="4" onclick="setStars('focus',4)">★</span>
+            <span class="star" data-val="5" onclick="setStars('focus',5)">★</span>
+          </div>
+          <input type="hidden" name="focus_level" id="focus-val">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Resilience / Grit Level Today</label>
+          <div class="star-row" id="grit-stars">
+            <span class="star" data-val="1" onclick="setStars('grit',1)">★</span>
+            <span class="star" data-val="2" onclick="setStars('grit',2)">★</span>
+            <span class="star" data-val="3" onclick="setStars('grit',3)">★</span>
+            <span class="star" data-val="4" onclick="setStars('grit',4)">★</span>
+            <span class="star" data-val="5" onclick="setStars('grit',5)">★</span>
+          </div>
+          <input type="hidden" name="grit_level" id="grit-val">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Discipline Rating Today</label>
+          <div class="star-row" id="discipline-stars">
+            <span class="star" data-val="1" onclick="setStars('discipline',1)">★</span>
+            <span class="star" data-val="2" onclick="setStars('discipline',2)">★</span>
+            <span class="star" data-val="3" onclick="setStars('discipline',3)">★</span>
+            <span class="star" data-val="4" onclick="setStars('discipline',4)">★</span>
+            <span class="star" data-val="5" onclick="setStars('discipline',5)">★</span>
+          </div>
+          <input type="hidden" name="discipline_level" id="discipline-val">
+        </div>
+        <div class="field-group">
+          <label class="field-label">What are you grateful for today?</label>
+          <textarea class="field-input" name="gratitude" rows="3" placeholder="3 things you're grateful for today..."></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">What would you do differently today?</label>
+          <textarea class="field-input" name="do_differently" rows="3" placeholder="Be honest — this is where growth lives..."></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Today's Affirmation</label>
+          <input type="text" class="field-input" name="affirmation" placeholder="Write a bold affirmation that fuels your identity...">
+        </div>
+        <div class="field-group">
           <label class="field-label">Mindset Notes</label>
-          <textarea class="field-input" name="mindset_notes" rows="3" placeholder="Reflection, affirmations, what you're grateful for..."></textarea>
+          <textarea class="field-input" name="mindset_notes" rows="3" placeholder="Reflection, mental blocks, breakthroughs..."></textarea>
         </div>
       </div>
 
@@ -831,6 +877,10 @@
             <input type="checkbox" name="nonneg[]" value="Set tomorrow's schedule / blocked time">
             <span>Set tomorrow's schedule / blocked time</span>
           </label>
+          <label class="check-item">
+            <input type="checkbox" name="nonneg[]" value="Made 200 dials today">
+            <span>Made 200 dials today</span>
+          </label>
         </div>
       </div>
 
@@ -855,6 +905,105 @@
     </div><!-- end page-body -->
   </form>
 </div><!-- end tab-report -->
+
+<!-- ================================================================
+     TAB: CHANGE SUBMISSION
+================================================================ -->
+<div class="tab-panel" id="tab-changes">
+  <div class="page-body" style="max-width:900px;margin:0 auto;">
+
+    <div class="section-card full" style="grid-column:1/-1;">
+      <div class="card-icon">📝</div>
+      <div class="card-title">Change Submission</div>
+      <div class="card-sub">Submit requests, feedback, or anything you need Deacon to know about</div>
+    </div>
+
+    <form id="change-form" class="page-body" style="display:contents;" onsubmit="submitChange(event)">
+      <input type="hidden" name="access_key" value="04f10d83-4f45-4471-ab71-ec4248af7195">
+      <input type="hidden" name="subject" value="WL Financial — Change Submission">
+      <input type="hidden" name="from_name" value="WL Financial Site">
+
+      <!-- Agent Info -->
+      <div class="section-card" data-num="1">
+        <div class="card-icon">👤</div>
+        <div class="card-title">Agent Info</div>
+        <div class="card-sub">Tell us who you are</div>
+        <div class="field-group">
+          <label class="field-label">Full Name <span style="color:#c9a84c;">*</span></label>
+          <input type="text" class="field-input" name="agent_name" placeholder="Your full name" required>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Email Address <span style="color:#c9a84c;">*</span></label>
+          <input type="email" class="field-input" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Phone Number</label>
+          <input type="tel" class="field-input" name="phone" placeholder="(000) 000-0000">
+        </div>
+      </div>
+
+      <!-- Change Category -->
+      <div class="section-card" data-num="2">
+        <div class="card-icon">🗂️</div>
+        <div class="card-title">Type of Request</div>
+        <div class="card-sub">What category does your request fall under?</div>
+        <div class="field-group">
+          <label class="field-label">Request Category <span style="color:#c9a84c;">*</span></label>
+          <select class="field-input" name="change_category" required style="background:#1a1a2e;color:#e8e0d4;border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:12px 16px;font-size:0.95rem;cursor:pointer;">
+            <option value="" disabled selected>Select a category...</option>
+            <option value="Commission / Pay Issue">Commission / Pay Issue</option>
+            <option value="Leads / Lead Distribution">Leads / Lead Distribution</option>
+            <option value="Policy / Procedure Change">Policy / Procedure Change</option>
+            <option value="Training Request">Training Request</option>
+            <option value="Tech / Systems Issue">Tech / Systems Issue</option>
+            <option value="Carrier / Product Question">Carrier / Product Question</option>
+            <option value="Team Structure / Hierarchy">Team Structure / Hierarchy</option>
+            <option value="Marketing / Branding">Marketing / Branding</option>
+            <option value="Personal Request">Personal Request</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Priority Level</label>
+          <select class="field-input" name="priority" style="background:#1a1a2e;color:#e8e0d4;border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:12px 16px;font-size:0.95rem;cursor:pointer;">
+            <option value="Normal">Normal</option>
+            <option value="High — Needs Attention Soon">High — Needs Attention Soon</option>
+            <option value="Urgent — ASAP">Urgent — ASAP</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="section-card full" data-num="3">
+        <div class="card-icon">✏️</div>
+        <div class="card-title">Details of Your Request</div>
+        <div class="card-sub">The more specific you are, the faster it gets resolved</div>
+        <div class="field-group">
+          <label class="field-label">Describe What You Need <span style="color:#c9a84c;">*</span></label>
+          <textarea class="field-input" name="change_description" rows="5" placeholder="Be as detailed as possible — include dates, names, dollar amounts, or anything else relevant..." required></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">What outcome are you looking for?</label>
+          <textarea class="field-input" name="desired_outcome" rows="4" placeholder="What does a win look like for you here? What resolution would satisfy this request?"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Additional Notes or Context</label>
+          <textarea class="field-input" name="additional_notes" rows="3" placeholder="Anything else Deacon should know..."></textarea>
+        </div>
+      </div>
+
+      <div class="section-card full" style="grid-column:1/-1;text-align:center;background:transparent;border:none;box-shadow:none;padding-top:0;">
+        <div class="submit-wrap">
+          <button type="submit" class="submit-btn" id="change-submit-btn">Submit Change Request</button>
+        </div>
+        <div id="change-success-msg" style="display:none;margin-top:24px;padding:20px 28px;background:rgba(201,168,76,0.1);border:1px solid #c9a84c;border-radius:12px;color:#c9a84c;font-size:1.05rem;font-family:'Raleway',sans-serif;">
+          ✅ Your request has been submitted. Deacon will review it and follow up with you shortly.
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div><!-- end tab-changes -->
 
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
@@ -964,6 +1113,31 @@
     btn.disabled = false; btn.textContent = 'Submit Daily Report';
     alertEl.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
+
+  // Change Submission form
+  async function submitChange(e) {
+    e.preventDefault();
+    const form = document.getElementById('change-form');
+    const btn  = document.getElementById('change-submit-btn');
+    const msg  = document.getElementById('change-success-msg');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.querySelectorAll('input:not([type="hidden"]), textarea, select').forEach(el => el.value = '');
+        msg.style.display = 'block';
+        msg.scrollIntoView({behavior:'smooth', block:'nearest'});
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch(err) {
+      alert('❌ Error submitting your request: ' + err.message);
+    }
+    btn.disabled = false; btn.textContent = 'Submit Change Request';
+  }
 </script>
 </body>
 </html>
