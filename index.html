@@ -427,6 +427,7 @@
   <button class="tab-btn" onclick="switchTab('apply', this)">Apply</button>
   <button class="tab-btn" onclick="switchTab('report', this)">Agent Report</button>
   <button class="tab-btn" onclick="switchTab('changes', this)">Change Submission</button>
+  <button class="tab-btn" onclick="switchTab('goals', this)">Goal Setting</button>
 </nav>
 
 <div class="motto">
@@ -921,7 +922,7 @@
     <div class="section-card full" style="grid-column:1/-1;">
       <div class="card-icon">📝</div>
       <div class="card-title">Change Submission</div>
-      <div class="card-sub">Submit requests, feedback, or anything you need W&L to know about</div>
+      <div class="card-sub">Submit requests, feedback, or anything you need Deacon to know about</div>
     </div>
 
     <form id="change-form" class="page-body" style="display:contents;" onsubmit="submitChange(event)">
@@ -994,7 +995,7 @@
         </div>
         <div class="field-group">
           <label class="field-label">Additional Notes or Context</label>
-          <textarea class="field-input" name="additional_notes" rows="3" placeholder="Anything else W&L should know..."></textarea>
+          <textarea class="field-input" name="additional_notes" rows="3" placeholder="Anything else Deacon should know..."></textarea>
         </div>
       </div>
 
@@ -1003,13 +1004,202 @@
           <button type="submit" class="submit-btn" id="change-submit-btn">Submit Change Request</button>
         </div>
         <div id="change-success-msg" style="display:none;margin-top:24px;padding:20px 28px;background:rgba(201,168,76,0.1);border:1px solid #c9a84c;border-radius:12px;color:#c9a84c;font-size:1.05rem;font-family:'Raleway',sans-serif;">
-          ✅ Your request has been submitted. W&L will review it and follow up with you shortly.
+          ✅ Your request has been submitted. Deacon will review it and follow up with you shortly.
         </div>
       </div>
 
     </form>
   </div>
 </div><!-- end tab-changes -->
+
+<!-- ================================================================
+     TAB: GOAL SETTING (Think and Grow Rich)
+================================================================ -->
+<div class="tab-panel" id="tab-goals">
+  <div style="max-width:980px;margin:0 auto;padding:44px 24px 70px;">
+
+    <!-- Banner -->
+    <div style="text-align:center;margin-bottom:44px;">
+      <div style="font-size:2.2rem;margin-bottom:10px;">🎯</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:#c9a84c;font-weight:900;letter-spacing:1px;margin-bottom:10px;">Think &amp; Grow Rich Goal System</h2>
+      <p style="color:#a0a0b8;font-size:0.95rem;letter-spacing:2px;text-transform:uppercase;">Napoleon Hill's Proven Framework — Applied to Your Life</p>
+      <div style="width:80px;height:2px;background:linear-gradient(90deg,transparent,#c9a84c,transparent);margin:18px auto 0;"></div>
+    </div>
+
+    <!-- STEP 1: BURNING DESIRE -->
+    <div class="section-card full" style="grid-column:1/-1;margin-bottom:28px;" data-num="I">
+      <div class="card-icon">🔥</div>
+      <div class="card-title">Step 1 — Your Burning Desire</div>
+      <div class="card-sub">"The starting point of all achievement is DESIRE. Keep this constantly in mind."</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;">
+        <div class="field-group">
+          <label class="field-label">Your Chief Definite Aim in Life</label>
+          <textarea class="field-input" id="g-aim" rows="4" placeholder="State exactly what you want to achieve. Be specific — not 'I want to be rich' but 'I will earn $_____ by _____.'"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Why Does This Burn Inside You?</label>
+          <textarea class="field-input" id="g-why" rows="4" placeholder="Your why must be stronger than your excuses. What will change for your family, your legacy, your life when you achieve this?"></textarea>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:16px 20px;background:rgba(201,168,76,0.07);border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;">
+        <p style="color:#c9a84c;font-size:0.85rem;font-style:italic;">"Wishing will not bring riches. But desiring riches with a state of mind that becomes an obsession, then planning definite ways and means to acquire riches, and backing those plans with persistence which does not recognize failure, will bring riches." — Napoleon Hill</p>
+      </div>
+    </div>
+
+    <!-- STEP 2: EXACT INCOME GOAL -->
+    <div class="section-card full" style="grid-column:1/-1;margin-bottom:28px;" data-num="II">
+      <div class="card-icon">💰</div>
+      <div class="card-title">Step 2 — The Six Steps to Riches</div>
+      <div class="card-sub">From Chapter 2 of Think and Grow Rich — Hill's exact formula. Fill each one out completely.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:12px;">
+        <div class="field-group">
+          <label class="field-label">① The Exact Amount of Money I Desire</label>
+          <div class="currency-wrap">
+            <span class="currency-symbol">$</span>
+            <input type="number" class="field-input" id="g-amount" placeholder="Be exact. Not 'a lot of money.'">
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">② The Exact Date I Will Have It By</label>
+          <input type="date" class="field-input" id="g-date">
+        </div>
+        <div class="field-group">
+          <label class="field-label">③ What I Will GIVE in Return</label>
+          <textarea class="field-input" id="g-give" rows="3" placeholder="'There is no something for nothing.' What value, service, or effort will you provide in exchange for this wealth?"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">④ My Definite Plan (First Step I Take TODAY)</label>
+          <textarea class="field-input" id="g-plan-step" rows="3" placeholder="What is the one action you will take today to begin moving toward this goal?"></textarea>
+        </div>
+      </div>
+      <div class="field-group" style="margin-top:4px;">
+        <label class="field-label">⑤ Write Your Goal Statement (Clear &amp; Concise)</label>
+        <textarea class="field-input" id="g-statement" rows="4" placeholder="Example: 'By [DATE], I will have [EXACT AMOUNT] in my possession. In return I will give [VALUE/SERVICE]. I believe I will have this money. My faith is so strong that I can now see it in my mind's eye and feel it.'"></textarea>
+      </div>
+      <div style="margin-top:12px;padding:14px 18px;background:rgba(201,168,76,0.07);border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;">
+        <p style="color:#c9a84c;font-size:0.85rem;font-style:italic;">⑥ Read this statement aloud every morning when you wake and every night before you sleep. As you read — SEE, FEEL, and BELIEVE yourself already in possession of this goal.</p>
+      </div>
+    </div>
+
+    <!-- STEP 3: FAITH & AUTO-SUGGESTION -->
+    <div class="section-card" style="margin-bottom:28px;" data-num="III">
+      <div class="card-icon">💎</div>
+      <div class="card-title">Step 3 — Faith &amp; Auto-Suggestion</div>
+      <div class="card-sub">"Faith is the head chemist of the mind."</div>
+      <div class="field-group">
+        <label class="field-label">My Daily Affirmation (Read Twice Daily)</label>
+        <textarea class="field-input" id="g-affirmation" rows="5" placeholder="Write a present-tense affirmation as if your goal is already achieved. Example: 'I am a top producer at Wealth and Legacy Financial. I earn $______ monthly and provide abundantly for my family. Every day I grow stronger in my craft and my faith.'"></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">What I BELIEVE About Myself</label>
+        <textarea class="field-input" id="g-belief" rows="3" placeholder="Your self-image determines your results. Who are you becoming? What do you believe is possible for you?"></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 4: SPECIALIZED KNOWLEDGE -->
+    <div class="section-card" style="margin-bottom:28px;" data-num="IV">
+      <div class="card-icon">📚</div>
+      <div class="card-title">Step 4 — Specialized Knowledge</div>
+      <div class="card-sub">"Knowledge is only potential power. It becomes power only when organized into definite plans of action."</div>
+      <div class="field-group">
+        <label class="field-label">Skills I Must Develop to Hit My Goal</label>
+        <textarea class="field-input" id="g-skills" rows="3" placeholder="Prospecting, closing, objection handling, leadership, financial literacy..."></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">What I Am Currently Studying / Learning</label>
+        <input type="text" class="field-input" id="g-studying" placeholder="Book, course, mentor, training...">
+      </div>
+      <div class="field-group">
+        <label class="field-label">My 90-Day Learning Commitment</label>
+        <textarea class="field-input" id="g-learning-commit" rows="3" placeholder="What will you commit to learning or mastering in the next 90 days?"></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 5: MASTERMIND -->
+    <div class="section-card" style="margin-bottom:28px;" data-num="V">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">Step 5 — The Mastermind Alliance</div>
+      <div class="card-sub">"No two minds ever come together without thereby creating a third, invisible, intangible force which may be likened to a third mind."</div>
+      <div class="field-group">
+        <label class="field-label">My Mastermind Group (Who I Align With)</label>
+        <textarea class="field-input" id="g-mastermind" rows="3" placeholder="List the people you align with — mentors, teammates, accountability partners. These people push you toward your goal."></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Who I Need to Cut Off or Limit</label>
+        <textarea class="field-input" id="g-cutoff" rows="3" placeholder="Negative influences, energy drains, people pulling you backward. Be honest."></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 6: DECISION & PERSISTENCE -->
+    <div class="section-card" style="margin-bottom:28px;" data-num="VI">
+      <div class="card-icon">🗡️</div>
+      <div class="card-title">Step 6 — Decision &amp; Persistence</div>
+      <div class="card-sub">"Persistence is to the character of man as carbon is to steel."</div>
+      <div class="field-group">
+        <label class="field-label">The Decision I Have Made (State It Like a Decree)</label>
+        <textarea class="field-input" id="g-decision" rows="3" placeholder="'I have decided, without any reservation, that I will...' Make it absolute. No escape clause."></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">My Biggest Obstacle &amp; How I Will Crush It</label>
+        <textarea class="field-input" id="g-obstacle" rows="3" placeholder="Be specific about the obstacle — fear, habits, environment. Then write your plan to defeat it."></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">What I Will Do When I Feel Like Quitting</label>
+        <textarea class="field-input" id="g-persist" rows="3" placeholder="Write this now, before the hard moment comes. Prepare your mind."></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 7: THE ORGANIZED PLAN -->
+    <div class="section-card full" style="grid-column:1/-1;margin-bottom:28px;" data-num="VII">
+      <div class="card-icon">🗺️</div>
+      <div class="card-title">Step 7 — My Organized Plan of Action</div>
+      <div class="card-sub">Break your goal into the exact milestones and daily actions that will get you there.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px;">
+        <div class="field-group">
+          <label class="field-label">30-Day Milestone</label>
+          <textarea class="field-input" id="g-30day" rows="4" placeholder="Where will you be in 30 days? What numbers, actions, results?"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">90-Day Milestone</label>
+          <textarea class="field-input" id="g-90day" rows="4" placeholder="Where will you be in 90 days? What will have changed?"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">1-Year Vision</label>
+          <textarea class="field-input" id="g-1year" rows="4" placeholder="Paint the picture. Income, lifestyle, family, position — what does it look like?"></textarea>
+        </div>
+      </div>
+      <div class="field-group" style="margin-top:4px;">
+        <label class="field-label">My Non-Negotiable Daily Actions (The 3 Things I Do Every Day Without Fail)</label>
+        <textarea class="field-input" id="g-daily-actions" rows="3" placeholder="Example: 200 dials, 2 appointments set, 30 min of personal development. These are your identity-level habits."></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 8: MY DECLARATION -->
+    <div class="section-card full" style="grid-column:1/-1;margin-bottom:36px;background:linear-gradient(135deg,#12122a,#1a1a2e);border-color:#c9a84c;" data-num="VIII">
+      <div class="card-icon">👑</div>
+      <div class="card-title" style="color:#c9a84c;">Step 8 — My Personal Declaration</div>
+      <div class="card-sub">The statement you read aloud every single day. Make it yours. Make it powerful.</div>
+      <div class="field-group" style="margin-top:8px;">
+        <label class="field-label">Write Your Full Declaration Here</label>
+        <textarea class="field-input" id="g-declaration" rows="8" placeholder="Combine everything above into one declaration. Start with: 'I, [YOUR NAME], commit on this day [DATE] that I will...' Include your goal, your date, what you give, your affirmation, your plan. Read this every morning and every night."></textarea>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:20px;flex-wrap:wrap;">
+        <button class="submit-btn" onclick="saveGoals()" style="flex:1;min-width:200px;">💾 Save My Goals</button>
+        <button onclick="printGoals()" style="flex:1;min-width:200px;padding:14px 32px;background:transparent;border:2px solid #c9a84c;color:#c9a84c;border-radius:8px;font-family:'Raleway',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:1px;">🖨️ Print / Save as PDF</button>
+      </div>
+      <div id="goals-saved-msg" style="display:none;margin-top:20px;padding:16px 20px;background:rgba(201,168,76,0.1);border:1px solid #c9a84c;border-radius:10px;color:#c9a84c;font-size:0.95rem;">
+        ✅ Goals saved locally to this device. Return any time — your entries will be here.
+      </div>
+    </div>
+
+    <!-- Quote footer -->
+    <div style="text-align:center;padding:20px 0 10px;">
+      <p style="color:#c9a84c;font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;">"Whatever the mind can conceive and believe, it can achieve."</p>
+      <p style="color:#666;font-size:0.8rem;margin-top:6px;">— Napoleon Hill, Think and Grow Rich</p>
+    </div>
+
+  </div>
+</div><!-- end tab-goals -->
 
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
@@ -1118,6 +1308,43 @@
     }
     btn.disabled = false; btn.textContent = 'Submit Daily Report';
     alertEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+
+  // Goal Setting — save to localStorage
+  const GOAL_FIELDS = ['g-aim','g-why','g-amount','g-date','g-give','g-plan-step','g-statement',
+    'g-affirmation','g-belief','g-skills','g-studying','g-learning-commit',
+    'g-mastermind','g-cutoff','g-decision','g-obstacle','g-persist',
+    'g-30day','g-90day','g-1year','g-daily-actions','g-declaration'];
+
+  function saveGoals() {
+    const data = {};
+    GOAL_FIELDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) data[id] = el.value;
+    });
+    localStorage.setItem('wlf_goals', JSON.stringify(data));
+    const msg = document.getElementById('goals-saved-msg');
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 4000);
+  }
+
+  function loadGoals() {
+    const saved = localStorage.getItem('wlf_goals');
+    if (!saved) return;
+    const data = JSON.parse(saved);
+    GOAL_FIELDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && data[id] !== undefined) el.value = data[id];
+    });
+  }
+
+  function printGoals() {
+    window.print();
+  }
+
+  // Load saved goals when tab is first opened
+  document.querySelector('[onclick*="goals"]').addEventListener('click', function() {
+    setTimeout(loadGoals, 50);
   });
 
   // Change Submission form
